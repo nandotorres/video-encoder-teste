@@ -1,7 +1,7 @@
 # Change these
 server '54.207.49.114', port: 22, roles: [:web, :app, :db], primary: true
 
-set :repo_url,        'git@example.com:nandotorres/video-encoder-teste.git'
+set :repo_url,        'git@github.com:nandotorres/video-encoder-teste.git'
 set :application,     'constoso'
 set :user,            'deploy'
 set :puma_threads,    [4, 16]
