@@ -61,10 +61,6 @@ GEM
       activesupport (>= 3.2.0)
       json (>= 1.7)
       mime-types (>= 1.16)
-    carrierwave_direct (0.0.15)
-      carrierwave
-      fog
-      uuidtools
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -328,7 +324,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (3.0.0)
       execjs (>= 0.3.0, < 3)
-    uuidtools (2.1.5)
     xml-simple (1.1.5)
 
 PLATFORMS
@@ -341,10 +336,11 @@ DEPENDENCIES
   capistrano-rails
   capistrano-rvm
   capistrano3-puma
-  carrierwave_direct
+  carrierwave
   coffee-rails (~> 4.1.0)
   factory_girl_rails
   ffaker
+  fog
   fog-aws
   jbuilder (~> 2.0)
   jquery-rails
