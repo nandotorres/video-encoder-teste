@@ -1,6 +1,4 @@
 class VideoUploader < CarrierWave::Uploader::Base
-  storage :fog
-
   def store_dir
     "originals/#{model.id}"
   end
