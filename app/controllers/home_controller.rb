@@ -1,8 +1,4 @@
-class HomeController < ActionController::Base
-  protect_from_forgery with: :exception
-
-  layout 'application'
-
+class HomeController < ApplicationController
   def index
   end
 end
