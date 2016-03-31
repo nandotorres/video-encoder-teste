@@ -19,6 +19,9 @@ gem 'draper', '~> 1.3'
 
 gem 'puma'
 
+# Gerenciar variaveis de ambiente
+gem 'figaro'
+
 group :development, :test do
   gem 'byebug'
 end
