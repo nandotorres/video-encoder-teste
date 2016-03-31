@@ -1,10 +1,10 @@
 <% content_for(:menu) do %>
-  <%= render :partial => 'shared/menu', :ativo => :videos %>  
+  <%= render :partial => 'shared/menu', locals: {ativo: :videos} %>  
 <% end %>
 
 <% content_for(:conteudo) do %>
   <% if @videos.lista_vazia? %>
-    <%= render :partial => 'lista_vazia' %>
+    <%= render 'lista_vazia' %>
   <% else %>
     <%= render @videos.lista %>
   <% end %>

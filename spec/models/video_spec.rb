@@ -18,8 +18,8 @@ RSpec.describe Video, type: :model do
     end
 
     it "deve bloquear arquivos de content-type nao permitidos" do
-      video_invalido = FactoryGirl.build :video, :extensao => 'avi'
-      expect(video_invalido).not_to be_valid, 'Permitiu uma extensao .avi'
+      video_invalido = FactoryGirl.build :video, :extensao => 'txt'
+      expect(video_invalido).not_to be_valid, 'Permitiu uma extensao invalida'
     end
   end
 end

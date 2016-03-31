@@ -1,5 +1,5 @@
 <% content_for(:menu) do %>
-  <%= render :partial => 'shared/menu', :ativo => :videos %>  
+  <%= render :partial => 'shared/menu', :locals => {ativo: :home} %>  
 <% end %>
 
 <% content_for(:conteudo) do %>

@@ -13,3 +13,15 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+(function(){
+  'use strict';
+
+  $('.dropify').dropify({
+    messages: {
+        'default': 'Arraste um video para cá ou clique para escolher um',
+        'replace': 'Clique para escolher outro vídeo',
+        'remove':  'Remover',
+        'error':   'Algum erro aconteceu =('
+    }});
+})();

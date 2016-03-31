@@ -1,0 +1,14 @@
+<% content_for(:menu) do %>
+  <%= render :partial => 'shared/menu', :locals => {ativo: :videos} %>  
+<% end %>
+
+<% content_for(:conteudo) do %>
+  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text">
+        <h4 class="mdl-cell mdl-cell--12-col">Novo vídeo</h4>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </section>
+<% end %>

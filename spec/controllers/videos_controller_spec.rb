@@ -21,4 +21,12 @@ RSpec.describe VideosController, type: :controller do
       expect(response).to render_template(partial: '_video')
     end    
   end
+
+  describe "GET #new" do
+    it "deve carregar um formulario para upload de video" do 
+      get :new
+      expect(response).to render_template(partial: '_form')
+      expect(assigns(:video).class).to eq(Video.new.class)
+    end
+  end
 end
