@@ -21,5 +21,7 @@ module VideoEncoderTeste
     config.autoload_paths += %W(\#{config.root}/lib)
 
     config.active_record.raise_in_transactional_callbacks = true
+
+    Zencoder.api_key = ENV['ZENCODER_KEY']
   end
 end

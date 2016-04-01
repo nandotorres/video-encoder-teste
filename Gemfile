@@ -16,6 +16,12 @@ gem 'fog-aws'
 
 gem 'simple_form'
 
+gem "zencoder", "~> 2.0"
+gem 'sidekiq'
+gem 'sinatra', require: false
+gem 'slim'
+gem 'state_machine'
+
 # Para decorar as views
 gem 'draper', '~> 1.3'
 
@@ -34,6 +40,7 @@ group :development do
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
+    gem 'capistrano-sidekiq', github: 'seuros/capistrano-sidekiq'
     gem 'capistrano-figaro-yml', '~> 1.0.2'
 end
 

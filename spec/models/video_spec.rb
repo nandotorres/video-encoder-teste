@@ -9,6 +9,7 @@ RSpec.describe Video, type: :model do
   subject { @video }
 
   it { should be_valid }
+  it { should be_pending }
 
   describe "#criar video" do
     it "deve ter gerado um arquivo em disco (em ambiente de testes)" do

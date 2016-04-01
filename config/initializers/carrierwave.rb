@@ -31,7 +31,7 @@ CarrierWave.configure do |config|
       end
 
       def store_dir
-        "testes/originals/#{model.id}"
+        "originais/#{model.id}"
       end
     end
   end

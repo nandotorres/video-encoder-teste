@@ -29,4 +29,11 @@ RSpec.describe VideosController, type: :controller do
       expect(assigns(:video).class).to eq(Video.new.class)
     end
   end
+
+  describe "POST #create" do
+    it "deve criar um novo video e fazer o upload do arquivo" do 
+      post :create, video: FactoryGirl.attributes_for(:video, :extensao => 'mp4')
+      expect(response).to redirect_to videos_url
+    end
+  end
 end

@@ -19,7 +19,7 @@
 
   $('.dropify').dropify({
     messages: {
-        'default': 'Arraste um video para cá ou clique para escolher um',
+        'default': 'Clique para escolher um vídeo',
         'replace': 'Clique para escolher outro vídeo',
         'remove':  'Remover',
         'error':   'Algum erro aconteceu =('
