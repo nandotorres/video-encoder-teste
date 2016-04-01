@@ -3,7 +3,6 @@ class ZencoderJob < ActiveJob::Base
   # Job para submeter solicitacoes de conversao
   #   para o Zencoder em background
   def perform(video_id)
-    puts "Job >>>>>>>>>>>>> #{video_id}"
     video = Video.find(video_id)
     job = ZencoderJobBuilder.new(video)
 

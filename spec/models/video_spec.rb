@@ -3,7 +3,7 @@ require 'spec_helper'
 RSpec.describe Video, type: :model do
   before {
    @video = FactoryGirl.build :video, :extensao => 'mp4'
-   @bucket = "/testes/originals/"
+   @bucket = "/originais/"
   }
 
   subject { @video }

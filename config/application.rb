@@ -17,9 +17,11 @@ module VideoEncoderTeste
       g.javascripts = false
       g.helper = false
     end
-    
-    config.autoload_paths += %W(\#{config.root}/lib)
 
+    config.time_zone = 'Brasilia'
+    config.i18n.default_locale = "pt-BR"
+    config.assets.paths << "#{Rails.root}/app/assets/fonts"        
+    config.autoload_paths += %W(\#{config.root}/lib)
     config.active_record.raise_in_transactional_callbacks = true
 
     Zencoder.api_key = ENV['ZENCODER_KEY']

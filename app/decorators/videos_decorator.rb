@@ -1,9 +1,9 @@
-class VideosDecorator < Draper::Decorator
+class VideosDecorator < Draper::CollectionDecorator
   def lista_vazia?
     object.empty?
   end
 
   def lista
-    object
+    object.decorate
   end
 end
