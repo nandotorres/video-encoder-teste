@@ -23,6 +23,7 @@ module VideoEncoderTeste
     config.assets.paths << "#{Rails.root}/app/assets/fonts"        
     config.autoload_paths += %W(\#{config.root}/lib)
     config.active_record.raise_in_transactional_callbacks = true
+    config.active_job.queue_adapter = :sidekiq
 
     Zencoder.api_key = ENV['ZENCODER_KEY']
   end

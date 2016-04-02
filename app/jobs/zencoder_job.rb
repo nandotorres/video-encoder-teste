@@ -1,4 +1,5 @@
 class ZencoderJob < ActiveJob::Base
+  queue_as :default
 
   # Job para submeter solicitacoes de conversao
   #   para o Zencoder em background
@@ -8,12 +9,14 @@ class ZencoderJob < ActiveJob::Base
 
     begin
       response = Zencoder::Job.create(job.parametros, :timeout => 30_000)
-
-      if response.code == 201
-        video.agendado!
+      if response.code.to_i == 201
+        video.job_id = response.body['id']
+        video.agendado
+        video.save
       end 
     rescue Timeout::Error, Zencoder::HTTPError
-      puts "Erro ao enviar para zencoder"
+      # Caso algum problema aconteca, agenda uma nova tentativa
+      ZencoderJob.set(wait: 10.seconds).perform_later(video_id)
     end
   end
 end

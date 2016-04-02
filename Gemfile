@@ -16,11 +16,13 @@ gem 'fog-aws'
 
 gem 'simple_form'
 
-gem "zencoder", "~> 2.0"
+gem 'zencoder', '~> 2.0'
 gem 'sidekiq'
+gem 'sidetiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'state_machine'
+gem 'whenever', :require => false
 
 # Para decorar as views
 gem 'draper', '~> 1.3'

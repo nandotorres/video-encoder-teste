@@ -1,5 +1,6 @@
 <tr>
-  <td class="mdl-data-table__cell--non-numeric"><%= video.nome %></td>
+  <td class="mdl-data-table__cell--non-numeric"><%= link_to video.nome, video_path(video) %></td>
   <td><%= video.data_legivel %></td>
-  <td><%= video.state %></td>
+  <td><%= video.job_id %></td>
+  <td class="mdl-data-table__cell--non-numeric"><span class='info-label <%= video.state %>'><%= video.state %></span></td>
 </tr>

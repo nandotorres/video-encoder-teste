@@ -1,9 +1,10 @@
 class Video < ActiveRecord::Base
   default_scope { order("created_at DESC") }
   scope :pending, -> { with_state(:pending) }
-  scope :transcoding, -> { with_state(:transcoding) }
-  scope :finished, -> { with_state(:finished) }
-  scope :failed, -> { with_state(:failed) }
+  scope :transcoding, -> { com_job_id.with_state(:transcoding) }
+  scope :finished, -> { com_job_id.with_state(:finished) }
+  scope :failed, -> { com_job_id.with_state(:failed) }
+  scope :com_job_id, -> { where('job_id is not null') }
 
   validates_presence_of :arquivo_original
 

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160401011051) do
+ActiveRecord::Schema.define(version: 20160402152716) do
 
   create_table "videos", force: :cascade do |t|
     t.string   "arquivo_original"
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
-    t.string   "state",            default: "pending"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.string   "state",              default: "pending"
+    t.integer  "job_id"
+    t.string   "arquivo_convertido"
+    t.integer  "largura"
+    t.integer  "altura"
+    t.integer  "tamanho_bytes"
+    t.integer  "duracao"
   end
 
   add_index "videos", ["state"], name: "index_videos_on_state"
