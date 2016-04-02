@@ -21,6 +21,6 @@ class VideosController < ApplicationController
 
   private
     def parametros
-      params.require(:video).permit(:arquivo_original)
+      params.fetch(:video, {}).permit(:arquivo_original)
     end
 end
