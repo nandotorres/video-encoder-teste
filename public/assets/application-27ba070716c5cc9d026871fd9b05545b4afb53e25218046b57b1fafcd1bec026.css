@@ -1,0 +1,829 @@
+.dropify-wrapper {
+  margin: 10px 0;
+  width: auto !important;
+}
+
+.info-label {
+  display: inline-block;
+  color: white;
+  padding: 3px 5px;
+}
+
+.info-label.pending {background: #ccc;}
+.info-label.transcoding {background: #00BCD4;}
+.info-label.finished {background: #4caf50;}
+.info-label.failed {background: #FF4081;}
+
+.alert-error {
+  background: rgb(255,64,129);
+  padding: 10px;
+  color: #fff;
+}
+/*!
+ * =============================================================
+ * dropify v0.2.0 - Override your input files with style.
+ * https://github.com/JeremyFagis/dropify
+ *
+ * (c) 2016 - Jeremy FAGIS <jeremy@fagis.fr> (http://fagis.fr)
+ * =============================================================
+ */
+@font-face {
+  font-family: dropify;
+  src: url(/assets/dropify.eot);
+  src: url(/assets/dropify.eot#iefix) format("embedded-opentype"), url(/assets/dropify.woff) format("woff"), url(/assets/dropify.ttf) format("truetype"), url(/assets/dropify.svg#dropify) format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-font:before, .dropify-wrapper .dropify-message span.file-icon:before, .dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-filename span.file-icon:before, [class*=" dropify-font-"]:before, [class^=dropify-font-]:before {
+  font-family: dropify;
+  font-style: normal;
+  font-weight: 400;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  width: 1em;
+  margin-left: .2em;
+  margin-right: .2em;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper, .dropify-wrapper .dropify-clear {
+  font-family: Roboto,"Helvetica Neue",Helvetica,Arial;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.has-error .dropify-message .dropify-error, .dropify-wrapper.has-preview .dropify-clear {
+  display: block;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-font-upload:before, .dropify-wrapper .dropify-message span.file-icon:before {
+  content: '\e800';
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-font-file:before {
+  content: '\e801';
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+  width: 100%;
+  max-width: 100%;
+  height: 200px;
+  padding: 5px 10px;
+  font-size: 14px;
+  line-height: 22px;
+  color: #777;
+  background-color: #FFF;
+  background-image: none;
+  text-align: center;
+  border: 2px solid #E5E5E5;
+  -webkit-transition: border-color .15s linear;
+  transition: border-color .15s linear;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper:hover {
+  background-size: 30px 30px;
+  background-image: -webkit-linear-gradient(135deg, #F6F6F6 25%, transparent 25%, transparent 50%, #F6F6F6 50%, #F6F6F6 75%, transparent 75%, transparent);
+  background-image: linear-gradient(-45deg, #F6F6F6 25%, transparent 25%, transparent 50%, #F6F6F6 50%, #F6F6F6 75%, transparent 75%, transparent);
+  -webkit-animation: stripes 2s linear infinite;
+  animation: stripes 2s linear infinite;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.has-error {
+  border-color: #F34141;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.has-error:hover .dropify-errors-container {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.disabled input {
+  cursor: not-allowed;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.disabled:hover {
+  background-image: none;
+  -webkit-animation: none;
+  animation: none;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.disabled .dropify-message {
+  opacity: .5;
+  text-decoration: line-through;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.disabled .dropify-infos-message {
+  display: none;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-message {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-message span.file-icon {
+  font-size: 50px;
+  color: #CCC;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-message p {
+  margin: 5px 0 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-message p.dropify-error {
+  color: #F34141;
+  font-weight: 700;
+  display: none;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-clear {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  z-index: 7;
+  top: 10px;
+  right: 10px;
+  background: 0 0;
+  border: 2px solid #FFF;
+  text-transform: uppercase;
+  font-size: 11px;
+  padding: 4px 8px;
+  font-weight: 700;
+  color: #FFF;
+  -webkit-transition: all .15s linear;
+  transition: all .15s linear;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-clear:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  background-color: #FFF;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-render img {
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  background-color: #FFF;
+  -webkit-transition: border-color .15s linear;
+  transition: border-color .15s linear;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-render i {
+  font-size: 70px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  color: #777;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-render .dropify-extension {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin-top: 10px;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  font-size: 13px;
+  width: 42px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(0, -40%);
+  transform: translate(0, -40%);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  width: 100%;
+  padding: 0 20px;
+  -webkit-transition: all .2s ease;
+  transition: all .2s ease;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #FFF;
+  text-align: center;
+  line-height: 25px;
+  font-weight: 700;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-filename span.file-icon {
+  margin-right: 2px;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message {
+  margin-top: 15px;
+  padding-top: 15px;
+  font-size: 12px;
+  position: relative;
+  opacity: .5;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  background: #FFF;
+  width: 30px;
+  height: 2px;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper:hover .dropify-clear, .dropify-wrapper:hover .dropify-preview .dropify-infos {
+  opacity: 1;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper:hover .dropify-preview .dropify-infos .dropify-infos-inner {
+  margin-top: -5px;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback {
+  height: auto !important;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback:hover {
+  background-image: none;
+  -webkit-animation: none;
+  animation: none;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview {
+  position: relative;
+  padding: 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-render {
+  display: block;
+  position: relative;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message::before, .dropify-wrapper.touch-fallback.has-preview .dropify-message {
+  display: none;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-render .dropify-font-file {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  top: 0;
+  left: 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-render .dropify-font-file::before {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-render img {
+  position: relative;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos {
+  position: relative;
+  opacity: 1;
+  background: 0 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner {
+  position: relative;
+  top: 0;
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  padding: 5px 90px 5px 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner p {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #777;
+  text-align: left;
+  line-height: 25px;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-filename {
+  font-weight: 700;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-preview .dropify-infos .dropify-infos-inner p.dropify-infos-message {
+  margin-top: 0;
+  padding-top: 0;
+  font-size: 11px;
+  position: relative;
+  opacity: 1;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-message {
+  -webkit-transform: translate(0, 0);
+  transform: translate(0, 0);
+  padding: 40px 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback .dropify-clear {
+  top: auto;
+  bottom: 23px;
+  opacity: 1;
+  border-color: rgba(119, 119, 119, 0.7);
+  color: #777;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper.touch-fallback:hover .dropify-preview .dropify-infos .dropify-infos-inner {
+  margin-top: 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-loader {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: none;
+  z-index: 9;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-loader::after {
+  display: block;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  -webkit-animation: rotate .6s linear infinite;
+  animation: rotate .6s linear infinite;
+  border-radius: 100%;
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #777;
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #777;
+  content: '';
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-errors-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3;
+  background: rgba(243, 65, 65, 0.8);
+  text-align: left;
+  visibility: hidden;
+  opacity: 0;
+  -webkit-transition: visibility 0s linear .15s,opacity .15s linear;
+  transition: visibility 0s linear .15s,opacity .15s linear;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-errors-container ul {
+  padding: 10px 20px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-errors-container ul li {
+  margin-left: 20px;
+  color: #FFF;
+  font-weight: 700;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper .dropify-errors-container.visible {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition-delay: 0s;
+  transition-delay: 0s;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper ~ .dropify-errors-container ul {
+  padding: 0;
+  margin: 15px 0;
+}
+
+/* line 9, /app/video-encoder-teste/app/assets/stylesheets/dropify.min.css.scss */
+.dropify-wrapper ~ .dropify-errors-container ul li {
+  margin-left: 20px;
+  color: #F34141;
+  font-weight: 700;
+}
+
+@-webkit-keyframes stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 60px 30px;
+  }
+}
+@keyframes stripes {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 60px 30px;
+  }
+}
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotateZ(-360deg);
+    transform: rotateZ(-360deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotateZ(-360deg);
+    transform: rotateZ(-360deg);
+  }
+  100% {
+    -webkit-transform: rotateZ(0);
+    transform: rotateZ(0);
+  }
+}
+/**
+ * Copyright 2015 Google Inc. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+
+html, body {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.mdl-demo .mdl-layout__header-row {
+  padding-left: 40px;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__header-row h3 {
+  font-size: inherit;
+}
+.mdl-demo .mdl-layout__tab-bar-button {
+  display: none;
+}
+.mdl-demo .mdl-layout.is-small-screen .mdl-layout__tab-bar .mdl-button {
+  display: none;
+}
+.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar,
+.mdl-demo .mdl-layout:not(.is-small-screen) .mdl-layout__tab-bar-container {
+  overflow: visible;
+}
+.mdl-demo .mdl-layout__tab-bar-container {
+  height: 64px;
+}
+.mdl-demo .mdl-layout__tab-bar {
+  padding: 0;
+  padding-left: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+.mdl-demo .mdl-layout__tab-bar .mdl-layout__tab {
+  height: 64px;
+  line-height: 64px;
+}
+.mdl-demo .mdl-layout__tab-bar .mdl-layout__tab.is-active::after {
+  background-color: white;
+  height: 4px;
+}
+.mdl-demo main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+.mdl-demo .mdl-card {
+  height: auto;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-demo .mdl-card > * {
+  height: auto;
+}
+.mdl-demo .mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+.mdl-demo.mdl-demo .mdl-card__supporting-text h4 {
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+.mdl-demo .mdl-card__actions {
+  margin: 0;
+  padding: 4px 40px;
+  color: inherit;
+}
+.mdl-demo .mdl-card__actions a {
+  color: #00BCD4;
+  margin: 0;
+}
+.mdl-demo .mdl-card__actions a:hover,
+.mdl-demo .mdl-card__actions a:active {
+  color: inherit;
+  background-color: transparent;
+}
+.mdl-demo .mdl-card__supporting-text + .mdl-card__actions {
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+.mdl-demo #add {
+  position: absolute;
+  right: 40px;
+  top: 36px;
+  z-index: 999;
+}
+
+.mdl-demo .mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+.mdl-demo section.section--center {
+  max-width: 860px;
+}
+.mdl-demo #features section.section--center {
+  max-width: 620px;
+}
+.mdl-demo section > header{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.mdl-demo section > .section__play-btn {
+  min-height: 200px;
+}
+.mdl-demo section > header > .material-icons {
+  font-size: 3rem;
+}
+.mdl-demo section > button {
+  position: absolute;
+  z-index: 99;
+  top: 8px;
+  right: 8px;
+}
+.mdl-demo section .section__circle {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 1;
+      -ms-flex-negative: 1;
+          flex-shrink: 1;
+}
+.mdl-demo section .section__text {
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  padding-top: 8px;
+}
+.mdl-demo section .section__text h5 {
+  font-size: inherit;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.mdl-demo section .section__text a {
+  text-decoration: none;
+}
+.mdl-demo section .section__circle-container > .section__circle-container__circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin: 8px 0;
+}
+.mdl-demo section.section--footer .section__circle--big {
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 8px 32px;
+}
+.mdl-demo .is-small-screen section.section--footer .section__circle--big {
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  margin: 8px 16px;
+}
+.mdl-demo section.section--footer {
+  padding: 64px 0;
+  margin: 0 -8px -8px -8px;
+}
+.mdl-demo section.section--center .section__text:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.mdl-demo .mdl-card .mdl-card__supporting-text > h3:first-child {
+  margin-bottom: 24px;
+}
+.mdl-demo .mdl-layout__tab-panel:not(#overview) {
+  background-color: white;
+}
+.mdl-demo #features section {
+  margin-bottom: 72px;
+}
+.mdl-demo #features h4, #features h5 {
+  margin-bottom: 16px;
+}
+.mdl-demo .toc {
+  border-left: 4px solid #C1EEF4;
+  margin: 24px;
+  padding: 0;
+  padding-left: 8px;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.mdl-demo .toc h4 {
+  font-size: 0.9rem;
+  margin-top: 0;
+}
+.mdl-demo .toc a {
+  color: #4DD0E1;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 28px;
+  display: block;
+}
+.mdl-demo .mdl-menu__container {
+  z-index: 99;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+
