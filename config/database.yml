@@ -4,11 +4,11 @@ default: &default
   pool: 5
   username: root
   password:
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: videoencoder
+  socket: /tmp/mysql.sock
 
 test:
   <<: *default
@@ -19,3 +19,4 @@ production:
   database: videoencoder
   username: root
   password: <%= ENV['VIDEOENCODER_MYSQL_PASSWORD'] %>
+  socket: /var/run/mysqld/mysqld.sock
