@@ -16,7 +16,5 @@ test:
 
 production:
   <<: *default
-  database: videoencoder
-  username: root
-  password: <%= ENV['VIDEOENCODER_MYSQL_PASSWORD'] %>
+  url: <%= ENV['VIDEOENCODER_MYSQL_URL'] %>
   socket: /var/run/mysqld/mysqld.sock
