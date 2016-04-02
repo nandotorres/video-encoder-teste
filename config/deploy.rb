@@ -84,5 +84,11 @@ namespace :figaro do
   end
 end
 
+namespace :custom do
+  task :resetdb do
+    run "cd #{current_path} && bundle exec rake db:reset RAILS_ENV=#{rails_env}"
+  end
+end
+
 after "deploy:started", "figaro:setup"
 after "deploy:symlink:release", "figaro:symlink"

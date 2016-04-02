@@ -2,8 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 
-# Para simplificar a instalacao do servidor, vamos de SQLite3
-gem 'sqlite3'
+gem 'mysql2', '0.3.20'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -16,17 +15,18 @@ gem 'fog-aws'
 
 gem 'simple_form'
 
+# Para integracao com o Zencoder
 gem 'zencoder', '~> 2.0'
 gem 'sidekiq'
 gem 'sidetiq'
 gem 'sinatra', require: false
 gem 'slim'
 gem 'state_machine'
-gem 'whenever', :require => false
 
 # Para decorar as views
 gem 'draper', '~> 1.3'
 
+# Gerenciar requisicoes HTTP para o Rails
 gem 'puma'
 
 # Gerenciar variaveis de ambiente
