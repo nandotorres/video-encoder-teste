@@ -1,4 +1,13 @@
 <%= simple_form_for @video do |f| %>
-  <%= f.input :arquivo_original, label: false, input_html: {class: 'dropify', data: {height: "80"}} %>
+
+  <% if @video.possui_erros? %>
+    <div id="error_explanation">
+      <div class="alert alert-error">
+        <%= @video.errors.full_messages.join('. ') %>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.input :arquivo_original, label: false, error: false, input_html: {class: 'dropify', data: {height: "80"}} %>
   <%= f.submit 'Enviar o vídeo', class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent' %>
 <% end %>

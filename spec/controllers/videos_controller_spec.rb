@@ -26,7 +26,7 @@ RSpec.describe VideosController, type: :controller do
     it "deve carregar um formulario para upload de video" do 
       get :new
       expect(response).to render_template(partial: '_form')
-      expect(assigns(:video).class).to eq(Video.new.class)
+      expect(assigns(:video).class).to eq(VideoDecorator.new(Video.new).class)
     end
   end
 
@@ -34,6 +34,11 @@ RSpec.describe VideosController, type: :controller do
     it "deve criar um novo video e fazer o upload do arquivo" do 
       post :create, video: FactoryGirl.attributes_for(:video, :extensao => 'mp4')
       expect(response).to redirect_to videos_url
+    end
+
+    it "deve exibir uma mensagem de erro ao enviar arquivos invalidos" do 
+      post :create, video: FactoryGirl.attributes_for(:video, :extensao => 'txt')
+      expect(response.body).to match /Não é permitido o envio de arquivos/im
     end
   end
 end

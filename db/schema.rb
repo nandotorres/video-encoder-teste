@@ -14,18 +14,18 @@
 ActiveRecord::Schema.define(version: 20160402152716) do
 
   create_table "videos", force: :cascade do |t|
-    t.string   "arquivo_original"
-    t.datetime "created_at",                             null: false
-    t.datetime "updated_at",                             null: false
-    t.string   "state",              default: "pending"
-    t.integer  "job_id"
-    t.string   "arquivo_convertido"
-    t.integer  "largura"
-    t.integer  "altura"
-    t.integer  "tamanho_bytes"
-    t.integer  "duracao"
+    t.string   "arquivo_original",   limit: 255
+    t.datetime "created_at",                                         null: false
+    t.datetime "updated_at",                                         null: false
+    t.string   "state",              limit: 255, default: "pending"
+    t.integer  "job_id",             limit: 4
+    t.string   "arquivo_convertido", limit: 255
+    t.integer  "largura",            limit: 4
+    t.integer  "altura",             limit: 4
+    t.integer  "tamanho_bytes",      limit: 4
+    t.integer  "duracao",            limit: 4
   end
 
-  add_index "videos", ["state"], name: "index_videos_on_state"
+  add_index "videos", ["state"], name: "index_videos_on_state", using: :btree
 
 end

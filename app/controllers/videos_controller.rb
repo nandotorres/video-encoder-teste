@@ -4,7 +4,7 @@ class VideosController < ApplicationController
   end
 
   def new
-    @video = Video.new
+    @video = Video.new.decorate
   end
 
   def create
@@ -14,7 +14,7 @@ class VideosController < ApplicationController
     if @video_scheduler.create
       redirect_to videos_path, notice: 'O seu vídeo foi enviado para conversão'
     else
-      @video = @video_scheduler.video
+      @video = @video_scheduler.video.decorate
       render action: :new
     end
   end

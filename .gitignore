@@ -16,7 +16,7 @@
 !/log/.keep
 /tmp
 /public/uploads/*
-/public/originals/*
+/public/originais/*
 spec/support/uploads/*
 
 # Ignore application configuration

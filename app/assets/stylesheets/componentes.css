@@ -13,3 +13,9 @@
 .info-label.transcoding {background: #00BCD4;}
 .info-label.finished {background: #4caf50;}
 .info-label.failed {background: #FF4081;}
+
+.alert-error {
+  background: rgb(255,64,129);
+  padding: 10px;
+  color: #fff;
+}
