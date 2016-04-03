@@ -10,8 +10,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'dropify';
-  src: url("/assets/dropify.eot");
-  src: url("/assets/dropify.eot#iefix") format("embedded-opentype"), url("/assets/dropify.woff") format("woff"), url("/assets/dropify.ttf") format("truetype"), url("/assets/dropify.svg#dropify") format("svg");
+  src: url("https://s3-sa-east-1.amazonaws.com/video-converter-assets/dropify.eot");
+  src: url("https://s3-sa-east-1.amazonaws.com/video-converter-assets/dropify.eot#iefix") format("embedded-opentype"), url("https://s3-sa-east-1.amazonaws.com/video-converter-assets/dropify.woff") format("woff"), url("https://s3-sa-east-1.amazonaws.com/video-converter-assets/dropify.ttf") format("truetype"), url("https://s3-sa-east-1.amazonaws.com/video-converter-assets/dropify.svg#dropify") format("svg");
   font-weight: normal;
   font-style: normal; }
 
