@@ -42,3 +42,7 @@ exclude_paths:
 - db/
 - spec/
 - vendor/
+- "app/assets/javascripts/dropify.min.js"
+- "app/assets/stylesheets/dropify.css"
+- "app/assets/stylesheets/style.css"
+
