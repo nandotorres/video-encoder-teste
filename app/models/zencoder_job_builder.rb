@@ -10,7 +10,7 @@ class ZencoderJobBuilder
       outputs: [
         {
           label: "#{@video.nome} (MP4)",
-          url: "s3://video-converter-teste/convertidos/#{@video.id}/#{@video.nome_sem_extensao}.mp4",
+          url: "s3://videoconverterteste/#{Rails.env}/convertidos/#{@video.id}/#{@video.nome_sem_extensao}.mp4",
           h264_profile: 'high',
           public: true
         }

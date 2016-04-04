@@ -14,7 +14,7 @@ CarrierWave.configure do |config|
     region:                'sa-east-1',
   }
   
-  config.fog_directory  = 'video-converter-teste'
+  config.fog_directory  = "videoconverterteste/#{Rails.env}"
   config.fog_public     = true
   config.fog_attributes = { 'Cache-Control' => "max-age=#{365.day.to_i}" } # optional, defaults to {}    
 
