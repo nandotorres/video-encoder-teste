@@ -1,28 +1,23 @@
-== README
+== Teste de programação web
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Dinâmica desenvolvida para o processo de seleção na SambaAds.
 
-Things you may want to cover:
+O desafio consiste em:
 
-* Ruby version
+- Desenvolver uma aplicação Web que permita a um usuário enviar um vídeo e convertê-lo para mp4 através de integração via REST com o Zencoder
+- Exibir o vídeo convertido na aplicação em um player HTML5 opensource
+- Configurar um servidor para a implantação dessa aplicação em algum serviço de Cloud (Amazon, Rackspace, VPC, etc.)
+- Utilizar Ruby e Ruby on Rails como plataforma de desenvolvimento
+- Implementar testes de comportamento
 
-* System dependencies
+== Entregas
 
-* Configuration
+- Endereço URL da aplicação funcionando
+- Endereço de um repositório público no GitHub contendo todo o código fonte
 
-* Database creation
+== Recursos
 
-* Database initialization
+- Utilizar a API Resful do Zencoder para realizar os serviços de conversão dos vídeos
+- Utilizar o serviço de storage da Amazon (S3) para repositório de vídeos de integração
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+== Stack utilizado para realizar o desafio
