@@ -31,8 +31,11 @@ RSpec.describe VideosController, type: :controller do
   end
 
   describe "POST #create" do
+    include ActiveJob::TestHelper
+    
     it "deve criar um novo video e fazer o upload do arquivo" do 
       post :create, video: FactoryGirl.attributes_for(:video, :extensao => 'mp4')
+      expect(enqueued_jobs.size).to eq(1) 
       expect(response).to redirect_to videos_url
     end
 
