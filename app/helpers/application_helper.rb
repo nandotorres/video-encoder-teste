@@ -56,5 +56,23 @@ module ApplicationHelper
         ]
       end      
     end
+
+    # Exibe mensagens temporarias na UI
+    class Flash
+      attr_accessor :msg
+
+      def initialize(msg = nil)
+        @msg = msg
+      end
+
+      def show
+        return if self.msg.nil?
+
+        html = <<-eos
+          <div class="alert-info">#{self.msg}</div>
+        eos
+        html.html_safe
+      end
+    end
   end
 end
