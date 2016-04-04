@@ -1,7 +1,10 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
   <div class="mdl-card mdl-cell mdl-cell--12-col">
     <div class="mdl-card__supporting-text">
-      <h4 class="mdl-cell mdl-cell--12-col">Vídeos enviados</h4>
+      <h4 class="mdl-cell mdl-cell--12-col">
+        Vídeos enviados
+        <%= link_to 'Atualizar', videos_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent botao-atualizar-videos' %>
+      </h4>
       <table class="mdl-data-table mdl-shadow--2dp mdl-cell--12-col">
         <thead>
           <tr>
