@@ -1,4 +1,5 @@
 == Teste de programação web
+{<img src="https://codeclimate.com/github/nandotorres/video-encoder-teste/badges/gpa.svg" />}[https://codeclimate.com/github/nandotorres/video-encoder-teste]
 
 Dinâmica desenvolvida para o processo de seleção na SambaAds.
 
