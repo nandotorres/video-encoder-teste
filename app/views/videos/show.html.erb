@@ -1,0 +1,40 @@
+<% content_for(:menu) do %>
+  <%= render :partial => 'shared/menu', :locals => {ativo: :videos} %>  
+<% end %>
+
+<% content_for(:conteudo) do %>
+  <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+    <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__supporting-text">
+        <h4 class="mdl-cell mdl-cell--12-col">Exibindo vídeo</h4>
+        
+        <%= render :partial => "player_#{@video.state}" %>
+
+        <table class="mdl-data-table mdl-shadow--2dp mdl-cell--12-col" style="width: 100%">
+          <tbody>
+            <tr>
+              <th>Situação</th>
+              <td><span class='info-label <%= @video.state %>'><%= @video.state %></span></td>
+            </tr>
+            <tr>
+              <th>Arquivo original</th>
+              <td><%= @video.arquivo_original %></td>
+            </tr>            
+            <tr>
+              <th>Arquivo convertido</th>
+              <td><%= @video.arquivo_convertido %></td>
+            </tr>
+            <tr>
+              <th>Tamanho</th>
+              <td><%= @video.tamanho_legivel %></td>
+            </tr>
+            <tr>
+              <th>Duração</th>
+              <td><%= @video.duracao_legivel %></td>
+            </tr>                                    
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+<% end %>

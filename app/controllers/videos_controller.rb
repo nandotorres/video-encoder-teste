@@ -19,6 +19,13 @@ class VideosController < ApplicationController
     end
   end
 
+  def show
+    @video = Video.find(params[:id]).decorate
+
+    rescue ActiveRecord::RecordNotFound
+      render :file => 'public/404.html', :status => :not_found
+  end
+
   private
     def parametros
       params.fetch(:video, {}).permit(:arquivo_original)

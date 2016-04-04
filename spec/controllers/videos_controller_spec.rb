@@ -41,4 +41,24 @@ RSpec.describe VideosController, type: :controller do
       expect(response.body).to match /Não é permitido o envio de arquivos/im
     end
   end
+
+  describe "GET #show" do 
+    it "deve exibir uma página com status 404 ao tentar um ID inexistente" do
+      get :show, id: 1000
+      expect(response.status).to eq(404)
+      expect(response.body).to match /P.gina n.o encontrada/im
+    end
+
+    it "deve exibir o adequado com o status do video" do
+      video = FactoryGirl.create :video, :extensao => 'mp4'
+      video.agendado!
+
+      get :show, id: video.id
+      expect(response).to render_template(partial: '_player_transcoding')
+
+      video.concluido!
+      get :show, id: video.id
+      expect(response).to render_template(partial: '_player_finished')      
+    end
+  end
 end
