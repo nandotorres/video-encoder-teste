@@ -19,5 +19,3 @@ O desafio consiste em:
 
 - Utilizar a API Resful do Zencoder para realizar os serviços de conversão dos vídeos
 - Utilizar o serviço de storage da Amazon (S3) para repositório de vídeos de integração
-
-== Stack utilizado para realizar o desafio
