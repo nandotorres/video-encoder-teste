@@ -1,4 +1,7 @@
 rvm:
   - 2.2.0
+services:
+  - mysql
+  - redis
 before_script: "bundle exec rake db:drop db:create db:migrate"
 script: "bundle exec rspec spec/"
