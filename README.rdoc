@@ -1,5 +1,5 @@
 == Teste de programação web
-{<img src="https://codeclimate.com/github/nandotorres/video-encoder-teste/badges/gpa.svg" />}[https://codeclimate.com/github/nandotorres/video-encoder-teste] [![Build Status](https://travis-ci.org/nandotorres/video-encoder-teste.svg?branch=master)](https://travis-ci.org/nandotorres/video-encoder-teste)
+{<img src="https://codeclimate.com/github/nandotorres/video-encoder-teste/badges/gpa.svg" />}[https://codeclimate.com/github/nandotorres/video-encoder-teste] {<img src="https://travis-ci.org/nandotorres/video-encoder-teste.svg?branch=master" alt="Build Status" />}[https://travis-ci.org/nandotorres/video-encoder-teste]
 
 Dinâmica desenvolvida para o processo de seleção na SambaAds.
 
