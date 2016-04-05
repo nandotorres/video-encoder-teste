@@ -5,6 +5,6 @@ services:
   - redis
 before_script:
   - mysql -e 'create database videoencoder_test'
-  - bundle exec db:migrate
+  - bundle exec rake db:migrate
 script: 
   - bundle exec rspec spec/
