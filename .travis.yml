@@ -3,6 +3,9 @@ rvm:
 services:
   - mysql
   - redis
+env:
+ AWS_ACCESS_KEY_ID=DUMMY
+ AWS_SECRET_ACCESS_KEY=DUMMY
 before_script:
   - mysql -e 'create database videoencoder_test'
   - bundle exec rake db:migrate
