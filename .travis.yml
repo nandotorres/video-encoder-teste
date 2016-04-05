@@ -3,5 +3,8 @@ rvm:
 services:
   - mysql
   - redis
-before_script: "bundle exec rake db:drop db:create db:migrate"
-script: "bundle exec rspec spec/"
+before_script:
+  - mysql -e 'create database videoencoder_test'
+  - bundle exec db:migrate
+script: 
+  - bundle exec rspec spec/
