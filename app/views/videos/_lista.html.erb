@@ -3,7 +3,7 @@
     <div class="mdl-card__supporting-text">
       <h4 class="mdl-cell mdl-cell--12-col">
         Vídeos enviados
-        <%= link_to 'Atualizar', videos_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent botao-atualizar-videos' %>
+        <%= link_to 'Atualizar Status', videos_path, class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent botao-atualizar-videos' %>
       </h4>
 
       <%= ApplicationHelper::UI::Flash.new(flash[:notice]).show %>
@@ -11,10 +11,10 @@
       <table class="mdl-data-table mdl-shadow--2dp mdl-cell--12-col">
         <thead>
           <tr>
-            <th class="mdl-data-table__cell--non-numeric">Arquivo</th>
+            <th class="mdl-data-table__cell--non-numeric">Arquivo original</th>
             <th>Envio</th>
             <th>Job ID</th>
-            <th class="mdl-data-table__cell--non-numeric">Situação</th>
+            <th class="mdl-data-table__cell--non-numeric">Status</th>
           </tr>
         </thead>
         <tbody>

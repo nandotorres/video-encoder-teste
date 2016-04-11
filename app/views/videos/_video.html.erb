@@ -1,5 +1,8 @@
 <tr>
-  <td class="mdl-data-table__cell--non-numeric"><%= link_to video.nome, video_path(video) %></td>
+  <td class="mdl-data-table__cell--non-numeric">
+    <%= video.nome %>
+    <%= link_to ' (ver o mp4)', video_path(video) if video.state == 'finished' %>
+  </td>
   <td><%= video.data_legivel %></td>
   <td><%= video.job_id %></td>
   <td class="mdl-data-table__cell--non-numeric"><span class='info-label <%= video.state %>'><%= video.state %></span></td>
