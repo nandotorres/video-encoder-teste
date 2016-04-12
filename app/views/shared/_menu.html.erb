@@ -2,9 +2,5 @@
   <% ApplicationHelper::UI::Menu.new(ativo).items.each do |item| %>
     <%= link_to item.titulo, item.url,
      class: item.css_class %>
-  <% end %>  
-  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored mdl-shadow--4dp mdl-color--accent" id="add" onclick="location.href='<%= new_video_path %>'">
-    <i class="material-icons" role="presentation">add</i>
-    <span class="visuallyhidden">Add</span>
-  </button>
+  <% end %>
 </div>
